@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="做过的一些难题Permutation!(from C2 I)题目描述今天出题人表示不想写题目背景！ 数列 (p1,p2,⋯,pn)是集合 {1,2,⋯,n}的排列当且仅当集合的每个元素都在数列中恰好出现一次.例如，(3,1,4,2,5)是 {1,2,3,4,5}的一个排列. 对于给定的n, 我们希望知道是否存在 {1,2,⋯,n}的一个排列 (p1,p2,⋯,pn)使得 2≤|pi−pi+1|≤3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一些难题">
+<meta property="og:url" content="http://example.com/2023/10/05/%E4%B8%80%E4%BA%9B%E9%9A%BE%E9%A2%98/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="做过的一些难题Permutation!(from C2 I)题目描述今天出题人表示不想写题目背景！ 数列 (p1,p2,⋯,pn)是集合 {1,2,⋯,n}的排列当且仅当集合的每个元素都在数列中恰好出现一次.例如，(3,1,4,2,5)是 {1,2,3,4,5}的一个排列. 对于给定的n, 我们希望知道是否存在 {1,2,⋯,n}的一个排列 (p1,p2,⋯,pn)使得 2≤|pi−pi+1|≤3">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-10-05T13:15:25.000Z">
+<meta property="article:modified_time" content="2023-10-06T14:34:55.929Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2023/10/05/%E4%B8%80%E4%BA%9B%E9%9A%BE%E9%A2%98/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2023/10/05/%E4%B8%80%E4%BA%9B%E9%9A%BE%E9%A2%98/","path":"2023/10/05/一些难题/","title":"一些难题"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>一些难题 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hexo</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%81%9A%E8%BF%87%E7%9A%84%E4%B8%80%E4%BA%9B%E9%9A%BE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">做过的一些难题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Permutation-from-C2-I"><span class="nav-number">1.1.</span> <span class="nav-text">Permutation!(from C2 I)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">输出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">输入样例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B"><span class="nav-number">1.1.1.4.</span> <span class="nav-text">输出样例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#czx-%E4%B8%8E%E5%B0%8F%E7%BE%8A%E5%87%BD%E6%95%B0-from-C2-J"><span class="nav-number">1.2.</span> <span class="nav-text">czx 与小羊函数(from C2 J)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5-1"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA-1"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">输出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B-1"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">输入样例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B-1"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">输出样例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%84%E5%88%99%E7%9A%84%E5%BD%A2"><span class="nav-number">1.3.</span> <span class="nav-text">规则的形</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0-2"><span class="nav-number">1.3.1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5-2"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA-2"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">输出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B-2"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">输入样例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B-2"><span class="nav-number">1.3.1.4.</span> <span class="nav-text">输出样例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hint"><span class="nav-number">1.3.2.</span> <span class="nav-text">Hint</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/05/%E4%B8%80%E4%BA%9B%E9%9A%BE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="一些难题 | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          一些难题
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-10-05 21:15:25" itemprop="dateCreated datePublished" datetime="2023-10-05T21:15:25+08:00">2023-10-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-10-06 22:34:55" itemprop="dateModified" datetime="2023-10-06T22:34:55+08:00">2023-10-06</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="做过的一些难题"><a href="#做过的一些难题" class="headerlink" title="做过的一些难题"></a>做过的一些难题</h1><h2 id="Permutation-from-C2-I"><a href="#Permutation-from-C2-I" class="headerlink" title="Permutation!(from C2 I)"></a>Permutation!(from C2 I)</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>今天出题人表示不想写题目背景！</p>
+<p>数列 (p1,p2,⋯,pn)是集合 {1,2,⋯,n}的排列当且仅当集合的每个元素都在数列中恰好出现一次.<br>例如，(3,1,4,2,5)是 {1,2,3,4,5}的一个排列.</p>
+<p>对于给定的n, 我们希望知道是否存在 {1,2,⋯,n}的一个排列 (p1,p2,⋯,pn)<br>使得 2≤|pi−pi+1|≤3对任意的1≤i&lt;n 都成立.</p>
+<h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><p>一行，一个正整数n，保证 1≤n≤10^5.</p>
+<h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><p>如果不存在这样的排列，输出一行一个整数 −1.</p>
+<p>如果存在这样的排列，输出两行，第一行一个正整数 n，接下来一行输出 n个正整数，表示满足条件的一个排列。如果存在多个满足条件的排列，你只需要输出任意一组即可.</p>
+<h4 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例"></a>输入样例</h4><p>5</p>
+<h4 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例"></a>输出样例</h4><p>5</p>
+<hr>
+<h2 id="czx-与小羊函数-from-C2-J"><a href="#czx-与小羊函数-from-C2-J" class="headerlink" title="czx 与小羊函数(from C2 J)"></a>czx 与小羊函数(from C2 J)</h2><h3 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h3><p>对正整数 n，用 p(n)表示 n 的各位 非 0 数字的乘积，如果 n 是个位数，则 p(n)&#x3D;n。</p>
+<p>例如：p(1)&#x3D;1,p(100)&#x3D;1,p(123)&#x3D;6<br>给定 n 求 p(1)+p(2)+…+p(n)，结果对 10^9+7 取模。</p>
+<h4 id="输入-1"><a href="#输入-1" class="headerlink" title="输入"></a>输入</h4><p>一行一个正整数 n 保证 1≤n&lt;10^100000.</p>
+<h4 id="输出-1"><a href="#输出-1" class="headerlink" title="输出"></a>输出</h4><p>输出一个正整数，表示 p(1)+p(2)+…+p(n) 对 10^9+7 取模得到的结果。</p>
+<h4 id="输入样例-1"><a href="#输入样例-1" class="headerlink" title="输入样例"></a>输入样例</h4><p>3</p>
+<h4 id="输出样例-1"><a href="#输出样例-1" class="headerlink" title="输出样例"></a>输出样例</h4><p>6</p>
+<hr>
+<h2 id="规则的形"><a href="#规则的形" class="headerlink" title="规则的形"></a>规则的形</h2><h3 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h3><p>有一天dyc非常无聊，他突发奇想想要改变足球场地，由于他有强迫症，他要求足球场地一定要是一个正多边形并且边数小于或等于 100，现在他已经确定了足球场的三个顶点的坐标，为了让运动员不那么累，他希望这个足球场的周长尽可能地小！但dyc此时困了，他希望你能来帮助他算出最小的周长是多少。</p>
+<h4 id="输入-2"><a href="#输入-2" class="headerlink" title="输入"></a>输入</h4><p>三行，每行两个六位小数的浮点数，分别表示三个点的坐标 (x1,y1)，(x2,y2)，(x3,y3)，保证 −10^4 &lt;xi,yi&lt;10^4(i&#x3D;1,2,3)，并且保证距离真实点的距离小于 10^−6，数据保证至少存在一个符合条件的正多边形。</p>
+<h4 id="输出-2"><a href="#输出-2" class="headerlink" title="输出"></a>输出</h4><p>一行，一个浮点数表示最小的周长。只要你的答案与正确答案的绝对误差或相对误差小于 10^−6 时就会视为正确。</p>
+<h4 id="输入样例-2"><a href="#输入样例-2" class="headerlink" title="输入样例"></a>输入样例</h4><p>0.000000 0.000000<br>1.000000 1.000000<br>0.000000 1.000000</p>
+<h4 id="输出样例-2"><a href="#输出样例-2" class="headerlink" title="输出样例"></a>输出样例</h4><p>4.000000</p>
+<h3 id="Hint"><a href="#Hint" class="headerlink" title="Hint"></a>Hint</h3><p>关于思路，可以参考</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_62959684/article/details/123907563">给三个定点，求所能确定的最小正多边形的面积</a></p>
+<hr>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/10/07/hello-world/" rel="next" title="Hello World">
+                  Hello World <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">John Doe</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
